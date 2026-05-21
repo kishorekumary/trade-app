@@ -1,0 +1,269 @@
+2026-05-20 14:05:10,417 [kite_client] WARNING: [33mNo Kite API key provided — running in simulation mode[0m
+2026-05-20 14:05:25,988 [kite_client] WARNING: [33mNo Kite API key provided — running in simulation mode[0m
+2026-05-20 14:05:26,003 [risk_manager] DEBUG: Position size: qty=4 | risk=2000.00 | sl_dist=100.00 | capital=10000.00
+2026-05-20 14:05:32,085 [backtest] INFO: [32mStarting backtest: 180 days | strategy=momentum[0m
+2026-05-20 14:05:32,085 [kite_client] WARNING: [33mNo Kite API key provided — running in simulation mode[0m
+2026-05-20 14:05:32,094 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=207.21 | capital=3549.76
+2026-05-20 14:05:32,095 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=218.56 | capital=3476.93
+2026-05-20 14:05:32,095 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=217.81 | capital=3420.24
+2026-05-20 14:05:32,096 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=202.32 | capital=3431.06
+2026-05-20 14:05:32,097 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=192.11 | capital=3371.85
+2026-05-20 14:05:32,097 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=213.34 | capital=3425.25
+2026-05-20 14:05:32,098 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=219.40 | capital=3402.63
+2026-05-20 14:05:32,099 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=203.42 | capital=3343.86
+2026-05-20 14:05:32,100 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=176.16 | capital=3316.99
+2026-05-20 14:05:32,102 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=206.84 | capital=3143.56
+2026-05-20 14:05:32,102 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=182.29 | capital=3237.69
+2026-05-20 14:05:32,103 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=183.12 | capital=3317.14
+2026-05-20 14:05:32,104 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=184.30 | capital=3326.72
+2026-05-20 14:05:32,104 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=190.46 | capital=3459.88
+2026-05-20 14:05:32,105 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=188.77 | capital=3402.13
+2026-05-20 14:05:32,105 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=193.19 | capital=3544.04
+2026-05-20 14:05:32,105 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=208.29 | capital=3480.97
+2026-05-20 14:05:32,106 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=234.24 | capital=3478.60
+2026-05-20 14:05:32,106 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=225.87 | capital=3603.78
+2026-05-20 14:05:32,106 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=219.88 | capital=3702.51
+2026-05-20 14:05:32,107 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=247.39 | capital=3546.36
+2026-05-20 14:05:32,109 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=185.94 | capital=3506.72
+2026-05-20 14:05:32,110 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=196.93 | capital=3467.33
+2026-05-20 14:05:32,110 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=206.73 | capital=3648.99
+2026-05-20 14:05:32,110 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=206.30 | capital=3580.88
+2026-05-20 14:05:32,112 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=205.44 | capital=3542.07
+2026-05-20 14:05:32,113 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=217.80 | capital=3518.39
+2026-05-20 14:05:32,114 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=211.15 | capital=3521.09
+2026-05-20 14:05:32,116 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=186.01 | capital=3527.84
+2026-05-20 14:05:32,117 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=194.45 | capital=3484.67
+2026-05-20 14:05:32,117 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=210.13 | capital=3672.87
+2026-05-20 14:05:32,117 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=197.38 | capital=3653.66
+2026-05-20 14:05:32,118 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=202.45 | capital=3656.49
+2026-05-20 14:05:32,118 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=209.95 | capital=3853.81
+2026-05-20 14:05:32,119 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=235.56 | capital=3840.06
+2026-05-20 14:05:32,119 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=245.00 | capital=3726.86
+2026-05-20 14:05:32,120 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=248.75 | capital=3842.89
+2026-05-20 14:05:32,120 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=213.23 | capital=3807.65
+2026-05-20 14:05:32,121 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=229.75 | capital=4186.49
+2026-05-20 14:05:32,122 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=247.25 | capital=4370.07
+2026-05-20 14:05:32,123 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=253.79 | capital=4397.60
+2026-05-20 14:05:32,123 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=244.29 | capital=4380.23
+2026-05-20 14:05:32,123 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=242.97 | capital=4577.31
+2026-05-20 14:05:32,123 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=278.28 | capital=4574.07
+2026-05-20 14:05:32,124 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=275.34 | capital=4597.36
+2026-05-20 14:05:32,124 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=272.98 | capital=4761.69
+2026-05-20 14:05:32,125 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=288.34 | capital=4756.58
+2026-05-20 14:05:32,134 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=102.06 | capital=1870.46
+2026-05-20 14:05:32,134 [risk_manager] DEBUG: Position size: qty=2 | risk=200.00 | sl_dist=91.96 | capital=3845.33
+2026-05-20 14:05:32,138 [risk_manager] DEBUG: Position size: qty=2 | risk=200.00 | sl_dist=90.62 | capital=3249.26
+2026-05-20 14:05:32,141 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=104.27 | capital=1781.42
+2026-05-20 14:05:32,141 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=109.44 | capital=1768.71
+2026-05-20 14:05:32,143 [risk_manager] DEBUG: Position size: qty=2 | risk=200.00 | sl_dist=96.04 | capital=3499.17
+2026-05-20 14:05:32,143 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=101.64 | capital=1823.88
+2026-05-20 14:05:32,144 [risk_manager] DEBUG: Position size: qty=1 | risk=165.83 | sl_dist=96.08 | capital=1830.06
+2026-05-20 14:05:32,144 [risk_manager] DEBUG: Position size: qty=1 | risk=128.86 | sl_dist=94.38 | capital=1811.97
+2026-05-20 14:05:41,903 [backtest] INFO: [32mStarting backtest: 180 days | strategy=momentum[0m
+2026-05-20 14:05:41,903 [kite_client] WARNING: [33mNo Kite API key provided — running in simulation mode[0m
+2026-05-20 14:05:41,934 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=213.18 | capital=3675.00
+2026-05-20 14:05:41,936 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=202.68 | capital=3711.63
+2026-05-20 14:05:41,936 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=227.39 | capital=3863.13
+2026-05-20 14:05:41,937 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=231.02 | capital=3813.75
+2026-05-20 14:05:41,940 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=228.10 | capital=3804.74
+2026-05-20 14:05:41,942 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=220.89 | capital=4042.18
+2026-05-20 14:05:41,944 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=225.00 | capital=4006.34
+2026-05-20 14:05:41,946 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=245.81 | capital=4248.97
+2026-05-20 14:05:41,947 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=251.78 | capital=4194.78
+2026-05-20 14:05:41,947 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=261.69 | capital=4550.37
+2026-05-20 14:05:41,948 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=269.73 | capital=4551.05
+2026-05-20 14:05:41,948 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=265.45 | capital=4473.85
+2026-05-20 14:05:41,949 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=248.80 | capital=4368.91
+2026-05-20 14:05:41,950 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=255.37 | capital=4460.31
+2026-05-20 14:05:41,950 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=256.06 | capital=4479.25
+2026-05-20 14:05:41,952 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=245.46 | capital=4407.52
+2026-05-20 14:05:41,954 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=240.90 | capital=4325.31
+2026-05-20 14:05:41,956 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=256.68 | capital=4337.40
+2026-05-20 14:05:41,956 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=254.02 | capital=4323.69
+2026-05-20 14:05:41,958 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=276.16 | capital=4772.70
+2026-05-20 14:05:41,958 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=277.54 | capital=4702.28
+2026-05-20 14:05:41,959 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=242.19 | capital=4809.70
+2026-05-20 14:05:41,960 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=244.78 | capital=4738.73
+2026-05-20 14:05:41,960 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=253.33 | capital=4798.61
+2026-05-20 14:05:41,961 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=274.00 | capital=4907.20
+2026-05-20 14:05:41,961 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=273.30 | capital=4876.98
+2026-05-20 14:05:41,962 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=269.23 | capital=4860.76
+2026-05-20 14:05:41,962 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=274.52 | capital=4878.32
+2026-05-20 14:05:41,963 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=266.99 | capital=4913.20
+2026-05-20 14:05:41,963 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=261.39 | capital=4923.53
+2026-05-20 14:05:41,964 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=274.52 | capital=4987.86
+2026-05-20 14:05:41,964 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=276.58 | capital=5059.38
+2026-05-20 14:05:41,965 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=299.27 | capital=4978.94
+2026-05-20 14:05:41,965 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=283.84 | capital=5012.42
+2026-05-20 14:05:41,965 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=291.42 | capital=5134.37
+2026-05-20 14:05:41,966 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=296.61 | capital=5316.56
+2026-05-20 14:05:41,967 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=294.70 | capital=5337.89
+2026-05-20 14:05:41,969 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=296.98 | capital=5167.24
+2026-05-20 14:05:41,970 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=286.91 | capital=5211.51
+2026-05-20 14:05:41,970 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=291.01 | capital=5198.79
+2026-05-20 14:05:41,971 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=321.02 | capital=5335.23
+2026-05-20 14:05:41,971 [risk_manager] DEBUG: Position size: qty=1 | risk=200.00 | sl_dist=297.26 | capital=5377.61
+2026-05-20 14:05:41,972 [risk_manager] DEBUG: Position size: qty=1 | risk=122.19 | sl_dist=294.71 | capital=5307.25
+2026-05-20 14:05:50,322 [kite_client] WARNING: [33mNo Kite API key provided — running in simulation mode[0m
+2026-05-20 14:05:50,324 [trading_agent] INFO: [32mAgent initialized | strategy=momentum | paper=True | universe=50 stocks[0m
+2026-05-20 14:15:11,819 [kite_client] INFO: [32mKite Connect initialized with access token[0m
+2026-05-20 14:15:11,820 [trading_agent] INFO: [32mAgent initialized | strategy=momentum | paper=True | universe=50 stocks[0m
+2026-05-20 14:40:08,736 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-20 14:41:39,612 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-20 14:43:36,073 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-20 14:46:07,397 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-20 14:48:05,252 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-20 14:52:03,188 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-20 14:55:25,809 [kite_client] INFO: [32mKite session established[0m
+2026-05-20 14:55:25,812 [kite_auth] INFO: [32mAccess token saved — valid until midnight IST today[0m
+2026-05-20 14:55:51,506 [kite_client] INFO: [32mKite Connect initialized with access token[0m
+2026-05-20 14:55:51,506 [trading_agent] INFO: [32mAgent initialized | strategy=momentum | paper=True | universe=50 stocks[0m
+2026-05-20 14:55:51,507 [trading_agent] INFO: [32m============================================================[0m
+2026-05-20 14:55:51,507 [trading_agent] INFO: [32mDaily scan started at 2026-05-20 14:55[0m
+2026-05-20 14:55:51,507 [trading_agent] INFO: [32m============================================================[0m
+2026-05-20 14:55:51,761 [trading_agent] WARNING: [33mTrading halted: Insufficient cash: -749.90 INR[0m
+2026-05-20 14:56:53,059 [scheduler] INFO: [32mStarting trading scheduler...[0m
+2026-05-20 14:56:53,250 [kite_client] INFO: [32mKite Connect initialized with access token[0m
+2026-05-20 14:56:53,250 [trading_agent] INFO: [32mAgent initialized | strategy=momentum | paper=True | universe=50 stocks[0m
+2026-05-20 14:56:53,250 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-20 14:56:53,250 [scheduler] INFO: [32mScheduler running. Press Ctrl+C to stop.[0m
+2026-05-20 14:56:53,250 [scheduler] INFO: [32mJobs scheduled:[0m
+2026-05-20 14:56:53,250 [scheduler] INFO: [32m  09:00 IST (Mon-Fri): Morning market scan[0m
+2026-05-20 14:56:53,250 [scheduler] INFO: [32m  Every 30 min: Position monitor[0m
+2026-05-20 14:56:53,250 [scheduler] INFO: [32m  15:40 IST (Mon-Fri): EOD report[0m
+2026-05-20 15:03:22,030 [kite_client] INFO: [32mKite Connect initialized with access token[0m
+2026-05-20 15:03:22,030 [trading_agent] INFO: [32mAgent initialized | strategy=momentum | paper=True | universe=50 stocks[0m
+2026-05-20 15:03:22,030 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-20 15:08:53,195 [scheduler] INFO: [32mStarting trading scheduler...[0m
+2026-05-20 15:08:53,398 [kite_client] INFO: [32mKite Connect initialized with access token[0m
+2026-05-20 15:08:53,398 [trading_agent] INFO: [32mAgent initialized | strategy=momentum | paper=True | universe=50 stocks[0m
+2026-05-20 15:08:53,398 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-20 15:08:53,398 [telegram] INFO: [32mListening for Telegram commands...[0m
+2026-05-20 15:08:53,398 [telegram] INFO: [32mTelegram command listener started[0m
+2026-05-20 15:08:53,998 [telegram] INFO: [32mTelegram command received: /start[0m
+2026-05-20 15:08:54,238 [scheduler] INFO: [32mScheduler ready. Jobs:[0m
+2026-05-20 15:08:54,239 [scheduler] INFO: [32m  08:45 IST  — Telegram auth reminder[0m
+2026-05-20 15:08:54,239 [scheduler] INFO: [32m  09:00 IST  — Morning market scan + trade execution[0m
+2026-05-20 15:08:54,239 [scheduler] INFO: [32m  Every 15m  — Position monitor (SL/target auto-exit)[0m
+2026-05-20 15:08:54,239 [scheduler] INFO: [32m  15:30 IST  — End-of-day P&L summary[0m
+2026-05-20 15:08:54,239 [scheduler] INFO: [32m  Friday 16h — Weekly performance report[0m
+2026-05-20 15:08:54,239 [scheduler] INFO: [32m  Telegram   — /scan /status /report /history /halt /resume[0m
+2026-05-20 15:08:54,822 [telegram] INFO: [32mTelegram command received: hi[0m
+2026-05-20 15:10:00,928 [telegram] INFO: [32mTelegram command received: /status[0m
+2026-05-20 15:10:14,794 [telegram] INFO: [32mTelegram command received: /scan[0m
+2026-05-20 15:10:15,604 [trading_agent] INFO: [32m============================================================[0m
+2026-05-20 15:10:15,606 [trading_agent] INFO: [32mDaily scan started at 2026-05-20 15:10[0m
+2026-05-20 15:10:15,606 [trading_agent] INFO: [32m============================================================[0m
+2026-05-20 15:10:15,715 [trading_agent] WARNING: [33mTrading halted: Insufficient cash: -749.90 INR[0m
+2026-05-20 15:23:56,442 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-20 15:26:53,496 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-20 15:26:54,061 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-20 15:30:27,536 [scheduler] INFO: [32mSending end-of-day summary...[0m
+2026-05-20 15:40:54,155 [scheduler] INFO: [32mGenerating end of day report...[0m
+2026-05-20 16:22:42,587 [telegram] ERROR: [31mTelegram poll error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=35)[0m
+2026-05-20 17:15:42,784 [telegram] INFO: [32mTelegram command received: /help[0m
+2026-05-20 17:16:03,051 [telegram] INFO: [32mTelegram command received: /history[0m
+2026-05-20 17:16:16,498 [telegram] INFO: [32mTelegram command received: /resume[0m
+2026-05-20 23:07:11,516 [telegram] ERROR: [31mTelegram poll error: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))[0m
+2026-05-20 23:37:56,968 [telegram] ERROR: [31mTelegram poll error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=35)[0m
+2026-05-20 23:59:24,222 [telegram] ERROR: [31mTelegram poll error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=35)[0m
+2026-05-21 01:02:55,375 [telegram] ERROR: [31mTelegram poll error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=35)[0m
+2026-05-21 01:48:38,962 [telegram] ERROR: [31mTelegram poll error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=35)[0m
+2026-05-21 02:34:24,352 [telegram] ERROR: [31mTelegram poll error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=35)[0m
+2026-05-21 03:50:31,787 [telegram] ERROR: [31mTelegram poll error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=35)[0m
+2026-05-21 04:51:12,344 [telegram] ERROR: [31mTelegram poll error: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))[0m
+2026-05-21 05:32:01,311 [telegram] ERROR: [31mTelegram poll error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=35)[0m
+2026-05-21 08:30:41,716 [telegram] ERROR: [31mTelegram poll error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=35)[0m
+2026-05-21 08:45:51,568 [scheduler] INFO: [32mSending auth reminder...[0m
+2026-05-21 08:46:16,141 [telegram] INFO: [32mTelegram command received: okay[0m
+2026-05-21 08:47:18,856 [telegram] INFO: [32mTelegram command received: /help[0m
+2026-05-21 08:47:29,949 [telegram] INFO: [32mTelegram command received: /status[0m
+2026-05-21 08:47:30,435 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 08:52:08,037 [telegram] INFO: [32mTelegram command received: /resume[0m
+2026-05-21 08:52:14,288 [telegram] INFO: [32mTelegram command received: /scan[0m
+2026-05-21 08:52:15,034 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 08:52:15,036 [trading_agent] INFO: [32mDaily scan started at 2026-05-21 08:52[0m
+2026-05-21 08:52:15,037 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 08:52:15,128 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 08:52:15,181 [trading_agent] WARNING: [33mTrading halted: Insufficient cash: 0.00 INR[0m
+2026-05-21 09:00:24,331 [scheduler] INFO: [32mRunning morning scan...[0m
+2026-05-21 09:00:24,617 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 09:00:25,529 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 09:00:25,530 [trading_agent] INFO: [32mDaily scan started at 2026-05-21 09:00[0m
+2026-05-21 09:00:25,530 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 09:00:25,592 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 09:00:25,597 [trading_agent] WARNING: [33mTrading halted: Insufficient cash: 0.00 INR[0m
+2026-05-21 09:00:51,388 [scheduler] INFO: [32mRunning morning scan...[0m
+2026-05-21 09:00:51,407 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 09:00:51,413 [trading_agent] INFO: [32mDaily scan started at 2026-05-21 09:00[0m
+2026-05-21 09:00:51,413 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 09:00:51,697 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 09:00:51,757 [trading_agent] WARNING: [33mTrading halted: Insufficient cash: 0.00 INR[0m
+2026-05-21 09:15:51,829 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 09:15:52,152 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 09:15:52,154 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 09:15:58,490 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 09:31:02,086 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 09:45:52,356 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 09:45:52,588 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 09:45:52,589 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 09:46:04,702 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 10:01:06,914 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 10:15:52,763 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 10:15:53,018 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 10:15:53,018 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 10:16:09,035 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 10:31:11,277 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 10:45:53,165 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 10:45:53,450 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 10:45:53,451 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 10:46:13,337 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:01:15,414 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:15:53,594 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:15:53,837 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 11:15:53,838 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 11:16:17,482 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:31:19,613 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:45:53,993 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:45:54,275 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 11:45:54,276 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 11:46:21,777 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:01:24,140 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:15:54,474 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:15:54,809 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 12:15:54,809 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 12:16:26,630 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:31:28,741 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:45:54,964 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:45:55,177 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 12:45:55,178 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 12:46:31,243 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:01:33,620 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:15:55,307 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:15:55,649 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 13:15:55,650 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 13:16:35,927 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:31:38,043 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:45:55,782 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:45:56,139 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 13:45:56,140 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 13:46:40,368 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:01:42,818 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:15:56,261 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:15:56,569 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 14:15:56,569 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 14:16:44,939 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:31:47,317 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:45:56,685 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:45:57,061 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 14:45:57,061 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 14:46:50,218 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 15:01:53,818 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 15:15:57,297 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 15:15:57,920 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 15:15:57,920 [scheduler] INFO: [32mPositions: 0 | Unrealized: ₹+0.00 | Realized: ₹+0.00[0m
+2026-05-21 15:16:56,669 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 15:30:28,697 [scheduler] INFO: [32mSending end-of-day summary...[0m
+2026-05-21 15:30:29,041 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m
+2026-05-21 15:40:58,076 [scheduler] INFO: [32mGenerating end of day report...[0m
+2026-05-21 15:40:58,482 [kite_client] ERROR: [31mFailed to fetch funds: Incorrect `api_key` or `access_token`.[0m

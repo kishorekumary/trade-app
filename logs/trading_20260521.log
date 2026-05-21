@@ -1,0 +1,57 @@
+2026-05-21 08:53:13,839 [kite_client] INFO: [32mKite session established[0m
+2026-05-21 08:53:13,841 [kite_auth] INFO: [32mAccess token saved — valid until midnight IST today[0m
+2026-05-21 08:53:13,843 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-21 09:48:53,140 [kite_client] INFO: [32mKite Connect initialized with access token[0m
+2026-05-21 09:48:53,140 [trading_agent] INFO: [32mAgent initialized | strategy=momentum | paper=True | universe=50 stocks[0m
+2026-05-21 09:48:53,141 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 09:48:53,141 [trading_agent] INFO: [32mDaily scan started at 2026-05-21 09:48[0m
+2026-05-21 09:48:53,141 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 09:48:53,340 [trading_agent] WARNING: [33mTrading halted: Insufficient cash: -749.90 INR[0m
+2026-05-21 09:49:19,590 [scheduler] INFO: [32mStarting trading scheduler...[0m
+2026-05-21 09:49:19,755 [kite_client] INFO: [32mKite Connect initialized with access token[0m
+2026-05-21 09:49:19,755 [trading_agent] INFO: [32mAgent initialized | strategy=momentum | paper=True | universe=50 stocks[0m
+2026-05-21 09:49:19,755 [telegram] INFO: [32mTelegram notifications enabled[0m
+2026-05-21 09:49:19,755 [telegram] INFO: [32mListening for Telegram commands...[0m
+2026-05-21 09:49:19,755 [telegram] INFO: [32mTelegram command listener started[0m
+2026-05-21 09:49:20,617 [scheduler] INFO: [32mScheduler ready. Jobs:[0m
+2026-05-21 09:49:20,617 [scheduler] INFO: [32m  08:45 IST  — Telegram auth reminder[0m
+2026-05-21 09:49:20,617 [scheduler] INFO: [32m  09:00 IST  — Morning scan (open)[0m
+2026-05-21 09:49:20,617 [scheduler] INFO: [32m  11:30 IST  — Mid-morning scan[0m
+2026-05-21 09:49:20,617 [scheduler] INFO: [32m  13:30 IST  — Post-lunch scan[0m
+2026-05-21 09:49:20,618 [scheduler] INFO: [32m  Every 15m  — Position monitor (SL/target auto-exit)[0m
+2026-05-21 09:49:20,618 [scheduler] INFO: [32m  15:30 IST  — End-of-day P&L summary[0m
+2026-05-21 09:49:20,618 [scheduler] INFO: [32m  Friday 16h — Weekly performance report[0m
+2026-05-21 09:49:20,618 [scheduler] INFO: [32m  Telegram   — /scan /status /report /history /halt /resume[0m
+2026-05-21 10:04:20,733 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 10:19:20,897 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 10:34:21,047 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 10:49:21,178 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:04:21,311 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:19:21,460 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:30:21,560 [scheduler] INFO: [32mRunning Mid-morning intraday scan...[0m
+2026-05-21 11:30:22,610 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 11:30:22,612 [trading_agent] INFO: [32mDaily scan started at 2026-05-21 11:30[0m
+2026-05-21 11:30:22,612 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 11:30:22,939 [trading_agent] WARNING: [33mTrading halted: Insufficient cash: -749.90 INR[0m
+2026-05-21 11:34:23,907 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 11:49:24,033 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:04:24,182 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:19:24,344 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:34:24,471 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 12:49:24,615 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:04:24,770 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:19:24,931 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:30:25,080 [scheduler] INFO: [32mRunning Post-lunch intraday scan...[0m
+2026-05-21 13:30:26,268 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 13:30:26,268 [trading_agent] INFO: [32mDaily scan started at 2026-05-21 13:30[0m
+2026-05-21 13:30:26,269 [trading_agent] INFO: [32m============================================================[0m
+2026-05-21 13:30:26,699 [trading_agent] WARNING: [33mTrading halted: Insufficient cash: -749.90 INR[0m
+2026-05-21 13:34:27,447 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 13:49:27,579 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:04:27,717 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:19:27,863 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:34:28,050 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 14:49:28,141 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 15:04:28,336 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 15:19:28,521 [scheduler] INFO: [32mMonitoring positions...[0m
+2026-05-21 15:30:28,683 [scheduler] INFO: [32mSending end-of-day summary...[0m

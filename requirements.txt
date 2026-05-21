@@ -1,0 +1,16 @@
+kiteconnect>=5.0.1
+openai>=1.30.0
+pandas>=2.2.0
+# pandas-ta removed: indicators implemented natively in src/analysis/technical.py
+numpy>=1.26.0
+python-dotenv>=1.0.0
+schedule>=1.2.0
+requests>=2.31.0
+aiohttp>=3.9.0
+sqlalchemy>=2.0.0
+tabulate>=0.9.0
+colorama>=0.4.6
+pytz>=2024.1
+rich>=13.7.0
+flask>=3.0.0
+httpx>=0.27.0
