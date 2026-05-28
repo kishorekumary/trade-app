@@ -83,12 +83,12 @@ class KiteClient:
         exchange: str = "NSE"
     ) -> pd.DataFrame:
         if not self._kite or not self._connected:
-            return self._simulate_historical_data(symbol, days)
+            return self._fetch_yfinance(symbol, days)
 
         try:
             instrument_token = self._get_instrument_token(symbol, exchange)
             if not instrument_token:
-                return pd.DataFrame()
+                return self._fetch_yfinance(symbol, days)
 
             to_date = datetime.now()
             from_date = to_date - timedelta(days=days)
@@ -106,8 +106,35 @@ class KiteClient:
                                 "close": "Close", "volume": "Volume"}, inplace=True)
             return df
         except Exception as e:
+            if "permission" in str(e).lower():
+                log.warning(f"Kite historical data permission denied for {symbol}, falling back to yfinance")
+                return self._fetch_yfinance(symbol, days)
             log.error(f"Historical data fetch failed for {symbol}: {e}")
             return pd.DataFrame()
+
+    _YF_SYMBOL_MAP = {
+        "M&M": "M%26M",
+    }
+
+    def _fetch_yfinance(self, symbol: str, days: int) -> pd.DataFrame:
+        try:
+            import yfinance as yf
+            base = self._YF_SYMBOL_MAP.get(symbol, symbol)
+            for suffix in (".NS", ".BO"):
+                ticker = f"{base}{suffix}"
+                df = yf.download(ticker, period=f"{days}d", interval="1d", progress=False, auto_adjust=True)
+                if not df.empty:
+                    if isinstance(df.columns, pd.MultiIndex):
+                        df.columns = df.columns.get_level_values(0)
+                    df.index = pd.to_datetime(df.index)
+                    df = df[["Open", "High", "Low", "Close", "Volume"]]
+                    log.info(f"yfinance data fetched for {symbol} ({ticker}): {len(df)} rows")
+                    return df
+            log.warning(f"yfinance returned no data for {symbol}, using simulation")
+            return self._simulate_historical_data(symbol, days)
+        except Exception as e:
+            log.error(f"yfinance fallback failed for {symbol}: {e}")
+            return self._simulate_historical_data(symbol, days)
 
     def _get_instrument_token(self, symbol: str, exchange: str = "NSE") -> Optional[int]:
         try:
@@ -121,11 +148,13 @@ class KiteClient:
 
     def get_quote(self, symbols: list[str], exchange: str = "NSE") -> dict:
         if not self._kite or not self._connected:
-            return {s: {"last_price": 1000.0 + hash(s) % 500} for s in symbols}
+            return {f"{exchange}:{s}": {"last_price": self._fetch_ltp_yfinance(s)} for s in symbols}
         try:
             formatted = [f"{exchange}:{s}" for s in symbols]
             return self._kite.quote(formatted)
         except Exception as e:
+            if "permission" in str(e).lower():
+                return {f"{exchange}:{s}": {"last_price": self._fetch_ltp_yfinance(s)} for s in symbols}
             log.error(f"Quote fetch failed: {e}")
             return {}
 
@@ -136,6 +165,21 @@ class KiteClient:
             return quote[key]["last_price"]
         except (KeyError, TypeError):
             return 0.0
+
+    def _fetch_ltp_yfinance(self, symbol: str) -> float:
+        try:
+            import yfinance as yf
+            base = self._YF_SYMBOL_MAP.get(symbol, symbol)
+            for suffix in (".NS", ".BO"):
+                df = yf.download(f"{base}{suffix}", period="2d", interval="1d",
+                                 progress=False, auto_adjust=True)
+                if not df.empty:
+                    if isinstance(df.columns, pd.MultiIndex):
+                        df.columns = df.columns.get_level_values(0)
+                    return float(df["Close"].iloc[-1])
+        except Exception:
+            pass
+        return 0.0
 
     def get_positions(self) -> dict:
         if not self._kite or not self._connected:
@@ -164,7 +208,7 @@ class KiteClient:
         price: float = 0,
         trigger_price: float = 0,
         exchange: str = "NSE",
-        product: str = "CNC",
+        product: str = "MIS",
         validity: str = "DAY",
         tag: str = "agent"
     ) -> Optional[str]:

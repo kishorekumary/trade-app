@@ -9,7 +9,7 @@ from src.risk import RiskManager
 from src.broker import KiteClient, OrderManager
 from src.database import AgentDecision, init_db
 from src.database.repository import TradeRepository
-from .prompts import SYSTEM_PROMPT, MARKET_CONTEXT_TEMPLATE, EXIT_ANALYSIS_TEMPLATE
+from .prompts import SYSTEM_PROMPT, MARKET_CONTEXT_TEMPLATE, EXIT_ANALYSIS_TEMPLATE, MARKET_REGIME_PROMPT
 from config.settings import settings
 
 log = get_logger("trading_agent")
@@ -37,6 +37,105 @@ class TradingAgent:
             f"Agent initialized | strategy={settings.STRATEGY} | "
             f"paper={settings.PAPER_TRADING} | universe={len(self.universe)} stocks"
         )
+
+    def analyze_market_regime(self) -> dict:
+        """Fetch Nifty + VIX data and ask GPT-4o to recommend intraday SL%/Target%."""
+        try:
+            import yfinance as yf
+            import numpy as np
+            import pandas as pd
+
+            nifty = yf.download("^NSEI", period="10d", interval="1d", progress=False, auto_adjust=True)
+            vix   = yf.download("^INDIAVIX", period="10d", interval="1d", progress=False, auto_adjust=True)
+
+            if isinstance(nifty.columns, pd.MultiIndex):
+                nifty.columns = nifty.columns.get_level_values(0)
+            if isinstance(vix.columns, pd.MultiIndex):
+                vix.columns = vix.columns.get_level_values(0)
+
+            if nifty.empty:
+                log.warning("Nifty data unavailable — keeping current SL/Target settings")
+                return {}
+
+            nifty_close   = float(nifty["Close"].iloc[-1])
+            nifty_prev    = float(nifty["Close"].iloc[-2])
+            nifty_change  = ((nifty_close - nifty_prev) / nifty_prev) * 100
+            nifty_5d      = nifty.tail(5)
+            nifty_5d_high = float(nifty_5d["High"].max())
+            nifty_5d_low  = float(nifty_5d["Low"].min())
+            ema20         = float(nifty["Close"].ewm(span=20).mean().iloc[-1])
+            atr_pct       = float((nifty_5d["High"] - nifty_5d["Low"]).mean() / nifty_close * 100)
+
+            vix_current = float(vix["Close"].iloc[-1]) if not vix.empty else 15.0
+            vix_avg     = float(vix["Close"].tail(5).mean()) if not vix.empty else 15.0
+            if vix_current > 20:
+                vix_signal = "High fear — expect wide swings"
+            elif vix_current < 13:
+                vix_signal = "Low volatility — tight orderly moves"
+            else:
+                vix_signal = "Normal volatility"
+
+            prompt = MARKET_REGIME_PROMPT.format(
+                date=datetime.now().strftime("%Y-%m-%d"),
+                nifty_close=nifty_close,
+                nifty_change=nifty_change,
+                nifty_5d_high=nifty_5d_high,
+                nifty_5d_low=nifty_5d_low,
+                nifty_above_ema20=nifty_close > ema20,
+                nifty_atr_pct=atr_pct,
+                vix_current=vix_current,
+                vix_avg=vix_avg,
+                vix_signal=vix_signal,
+            )
+
+            response = self.client.chat.completions.create(
+                model=settings.OPENAI_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                response_format={"type": "json_object"},
+                temperature=0.2,
+            )
+            result = json.loads(response.choices[0].message.content)
+
+            sl_pct     = float(result.get("sl_pct", settings.INTRADAY_SL_PCT))
+            target_pct = float(result.get("target_pct", settings.INTRADAY_TARGET_PCT))
+            regime     = result.get("market_regime", "unknown")
+            reasoning  = result.get("reasoning", "")
+
+            # Apply bounds — never let GPT go too wide or too tight
+            sl_pct     = max(0.2, min(sl_pct, 1.0))
+            target_pct = max(0.4, min(target_pct, 2.0))
+
+            settings.INTRADAY_SL_PCT     = sl_pct
+            settings.INTRADAY_TARGET_PCT = target_pct
+
+            log.info(
+                f"Market regime: {regime.upper()} | "
+                f"SL={sl_pct:.1f}% | Target={target_pct:.1f}% | "
+                f"Nifty={nifty_change:+.2f}% | VIX={vix_current:.1f} | {reasoning}"
+            )
+            return result
+
+        except Exception as e:
+            log.error(f"Market regime analysis failed: {e}")
+            return {}
+
+    def recalculate_open_trade_levels(self):
+        """Update SL/Target for all open trades to match current intraday settings."""
+        if not settings.INTRADAY_MODE:
+            return
+        open_trades = self.repo.get_open_trades()
+        if not open_trades:
+            return
+        for trade in open_trades:
+            new_sl     = round(trade.entry_price * (1 - settings.INTRADAY_SL_PCT / 100), 2)
+            new_target = round(trade.entry_price * (1 + settings.INTRADAY_TARGET_PCT / 100), 2)
+            if new_sl != trade.stop_loss or new_target != trade.target:
+                self.repo.update_trade_levels(trade.id, new_sl, new_target)
+                log.info(
+                    f"Recalculated {trade.symbol}: "
+                    f"SL {trade.stop_loss:.2f}→{new_sl:.2f} | "
+                    f"T {trade.target:.2f}→{new_target:.2f}"
+                )
 
     def run_daily_scan(self) -> list[dict]:
         """Full market scan: analyze universe, ask Claude, execute best trades."""
@@ -139,13 +238,15 @@ class TradingAgent:
             rsi_signal=tech.get("rsi_signal", "neutral"),
             macd_signal="Bullish" if tech.get("macd_bullish") else "Bearish" if tech.get("macd_bearish") else "Neutral",
             ema20=ema20,
-            above_ema20=tech.get("above_ema20", False),
+            ema20_pos="ABOVE" if tech.get("above_ema20") else "BELOW",
             ema50=ema50,
-            above_ema50=tech.get("above_ema50", False),
+            ema50_pos="ABOVE" if tech.get("above_ema50") else "BELOW",
             ema200=ema200,
-            above_ema200=tech.get("above_ema200", False),
+            ema200_pos="ABOVE" if tech.get("above_ema200") else "BELOW",
             adx=tech.get("adx", 0),
+            adx_trend="Strong trend" if tech.get("adx", 0) > 25 else "Weak trend",
             bb_pct=tech.get("bb_pct", 0.5),
+            bb_zone="Upper zone" if tech.get("bb_pct", 0.5) > 0.8 else "Lower zone" if tech.get("bb_pct", 0.5) < 0.2 else "Mid zone",
             stoch_k=tech.get("stoch_k", 50),
             atr=tech.get("atr", 0),
             volume_ratio=volume_ratio,

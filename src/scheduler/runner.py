@@ -12,9 +12,18 @@ log = get_logger("scheduler")
 IST = pytz.timezone("Asia/Kolkata")
 
 SCAN_SLOTS = [
-    ("09:00", "Morning"),
-    ("11:30", "Mid-morning"),
-    ("13:30", "Post-lunch"),
+    ("09:00", "Pre-market"),
+    ("09:15", "Open"),
+    ("09:45", "Early"),
+    ("10:15", "Mid-morning"),
+    ("10:45", "Mid-morning-2"),
+    ("11:15", "Late-morning"),
+    ("11:45", "Late-morning-2"),
+    ("12:15", "Midday"),
+    ("12:45", "Midday-2"),
+    ("13:15", "Post-lunch"),
+    ("13:45", "Post-lunch-2"),
+    ("14:15", "Afternoon"),
 ]
 
 
@@ -72,6 +81,14 @@ def job_auth_reminder(notifier: TelegramNotifier):
 def job_morning_scan(agent: TradingAgent, notifier: TelegramNotifier):
     if not is_weekday():
         return
+    regime = agent.analyze_market_regime()
+    if regime:
+        notifier.send(
+            f"📊 <b>Market Regime: {regime.get('market_regime','?').replace('_',' ').title()}</b>\n"
+            f"🛡 SL: {regime.get('sl_pct', 0.5):.1f}% | 🎯 Target: {regime.get('target_pct', 1.0):.1f}%\n"
+            f"💡 {regime.get('reasoning', '')}"
+        )
+        agent.recalculate_open_trade_levels()
     _run_scan(agent, notifier, "Morning", full_universe=True)
 
 
@@ -126,6 +143,30 @@ def job_position_monitor(agent: TradingAgent, notifier: TelegramNotifier):
         log.error(f"Monitor error: {e}")
 
 
+def job_intraday_squareoff(agent: TradingAgent, notifier: TelegramNotifier):
+    """Force-exit all open positions before Zerodha's 15:20 MIS auto square-off."""
+    if not is_weekday():
+        return
+    log.info("Intraday square-off: closing all open positions...")
+    try:
+        open_trades = agent.repo.get_open_trades()
+        if not open_trades:
+            log.info("No open positions to square off.")
+            return
+        closed_count = 0
+        for trade in open_trades:
+            ltp = agent.kite.get_ltp(trade.symbol, trade.exchange)
+            exit_price = ltp if ltp > 0 else trade.entry_price
+            closed = agent.orders.exit_trade(trade, exit_price, "Intraday square-off 15:15")
+            if closed:
+                notifier.notify_trade_exit(trade.symbol, closed.pnl, closed.pnl_pct, "EOD square-off")
+                closed_count += 1
+        log.info(f"Square-off complete: {closed_count}/{len(open_trades)} positions closed")
+    except Exception as e:
+        log.error(f"Square-off error: {e}")
+        notifier.notify_error(f"Square-off failed: {e}")
+
+
 def job_eod_report(agent: TradingAgent, notifier: TelegramNotifier):
     if not is_weekday():
         return
@@ -176,14 +217,15 @@ def run_scheduler():
         log.info("→ Run /scan on Telegram to scan right now")
     log.info(f"Next scheduled scan: {next_scan}")
     log.info("-" * 60)
-    log.info("Full schedule (IST):")
-    log.info("  08:45  — Auth reminder via Telegram")
-    log.info("  09:00  — Morning scan      (50 stocks)")
-    log.info("  11:30  — Mid-morning scan  (25 stocks)")
-    log.info("  13:30  — Post-lunch scan   (25 stocks)")
-    log.info("  15:30  — End-of-day report")
-    log.info("  Fri 16:00 — Weekly report")
-    log.info("  Every 15m — SL/target auto-exit monitor")
+    log.info("Full schedule (IST) — INTRADAY MIS mode:")
+    log.info("  08:45        — Auth reminder via Telegram")
+    log.info("  09:00        — Pre-market scan (50 stocks)")
+    log.info("  09:15–14:15  — Scans every 30 min (25 stocks)")
+    log.info("  Every 5m     — SL/target auto-exit monitor")
+    log.info("  14:30        — Entry cutoff (no new positions)")
+    log.info("  15:15        — Force square-off all positions")
+    log.info("  15:30        — End-of-day report")
+    log.info("  Fri 16:00    — Weekly report")
     log.info("-" * 60)
     log.info("Telegram commands: /scan /status /report /history /halt /resume")
     log.info("=" * 60)
@@ -216,9 +258,13 @@ def run_scheduler():
     # ── Register all jobs ─────────────────────────────────────────────────────
     schedule.every().day.at("08:45").do(job_auth_reminder, notifier)
     schedule.every().day.at("09:00").do(job_morning_scan, agent, notifier)
-    schedule.every().day.at("11:30").do(job_intraday_scan, agent, notifier, "Mid-morning")
-    schedule.every().day.at("13:30").do(job_intraday_scan, agent, notifier, "Post-lunch")
-    schedule.every(15).minutes.do(job_position_monitor, agent, notifier)
+
+    # Intraday: scan every 30 min from 09:15 to 14:15
+    for slot_time, label in SCAN_SLOTS[1:]:  # skip 09:00 already scheduled above
+        schedule.every().day.at(slot_time).do(job_intraday_scan, agent, notifier, label)
+
+    schedule.every(5).minutes.do(job_position_monitor, agent, notifier)
+    schedule.every().day.at("15:15").do(job_intraday_squareoff, agent, notifier)
     schedule.every().day.at("15:30").do(job_eod_report, agent, notifier)
     schedule.every().friday.at("16:00").do(job_weekly_report, agent, notifier)
 

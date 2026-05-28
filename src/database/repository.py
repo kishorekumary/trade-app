@@ -60,6 +60,15 @@ class TradeRepository:
                 trade.status = TradeStatus.OPEN
                 session.commit()
 
+    def update_trade_levels(self, trade_id: int, stop_loss: float, target: float):
+        with get_session() as session:
+            trade = session.query(Trade).filter(Trade.id == trade_id).first()
+            if trade:
+                trade.stop_loss = stop_loss
+                trade.target = target
+                session.commit()
+                log.info(f"Trade {trade_id} ({trade.symbol}) levels updated: SL={stop_loss:.2f} T={target:.2f}")
+
     def get_today_pnl(self) -> float:
         today = date.today().isoformat()
         with get_session() as session:

@@ -57,11 +57,11 @@ MARKET_CONTEXT_TEMPLATE = """
 ## Technical Indicators
 - RSI (14): {rsi:.1f} → {rsi_signal}
 - MACD: {macd_signal}
-- EMA20: ₹{ema20:.2f} | Price {'ABOVE' if above_ema20 else 'BELOW'} EMA20
-- EMA50: ₹{ema50:.2f} | Price {'ABOVE' if above_ema50 else 'BELOW'} EMA50
-- EMA200: ₹{ema200:.2f} | Price {'ABOVE' if above_ema200 else 'BELOW'} EMA200
-- ADX: {adx:.1f} ({'Strong trend' if adx > 25 else 'Weak trend'})
-- Bollinger Band %: {bb_pct:.2f} ({'Upper zone' if bb_pct > 0.8 else 'Lower zone' if bb_pct < 0.2 else 'Mid zone'})
+- EMA20: ₹{ema20:.2f} | Price {ema20_pos} EMA20
+- EMA50: ₹{ema50:.2f} | Price {ema50_pos} EMA50
+- EMA200: ₹{ema200:.2f} | Price {ema200_pos} EMA200
+- ADX: {adx:.1f} ({adx_trend})
+- Bollinger Band %: {bb_pct:.2f} ({bb_zone})
 - Stochastic K: {stoch_k:.1f}
 - ATR (14): ₹{atr:.2f}
 - Volume Ratio: {volume_ratio:.2f}x ({volume_status})
@@ -120,3 +120,39 @@ Should we exit this position? Respond in JSON:
   "urgency": "immediate" | "end_of_day" | "can_wait"
 }}
 """
+
+MARKET_REGIME_PROMPT = """You are an expert intraday risk manager for NSE equity trading.
+
+Analyze today's market conditions and recommend tight intraday stop-loss and target percentages.
+
+## Market Data
+**Date:** {date}
+**Nifty 50**
+- Current: {nifty_close:.2f}
+- Change today: {nifty_change:+.2f}%
+- 5-day range: {nifty_5d_low:.2f} – {nifty_5d_high:.2f}
+- Above EMA20: {nifty_above_ema20}
+- 5-day ATR%: {nifty_atr_pct:.2f}%
+
+**India VIX (Fear Index)**
+- Current: {vix_current:.2f}
+- 5-day average: {vix_avg:.2f}
+- Interpretation: {vix_signal}
+
+## Your Task
+Based on the above, recommend SL% and Target% for intraday MIS trades today.
+
+Rules:
+- Target must always be 2× the SL (maintain 2:1 R:R)
+- VIX > 20 → widen stops (more noise)
+- VIX < 13 → tighten stops (low volatility, clean moves)
+- Strong trend day (Nifty ±1%) → can use larger target
+- Choppy/flat day → tighten both
+
+Respond ONLY in this JSON format:
+{{
+  "sl_pct": <float between 0.2 and 1.0>,
+  "target_pct": <float between 0.4 and 2.0>,
+  "market_regime": "trending_up" | "trending_down" | "volatile" | "choppy" | "calm",
+  "reasoning": "1-2 sentence explanation"
+}}"""

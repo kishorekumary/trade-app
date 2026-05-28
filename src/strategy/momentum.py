@@ -2,6 +2,7 @@ from typing import Optional
 import pandas as pd
 from .base import BaseStrategy, TradeSignal
 from src.utils import get_logger
+from config.settings import settings
 
 log = get_logger("momentum_strategy")
 
@@ -72,8 +73,14 @@ class MomentumStrategy(BaseStrategy):
             return None
 
         # Calculate levels
-        stop_loss = round(close - (atr * 2), 2)
-        target = round(close + (atr * 4), 2)  # 2:1 R:R minimum
+        if settings.INTRADAY_MODE:
+            sl_dist = round(close * (settings.INTRADAY_SL_PCT / 100), 2)
+            tp_dist = round(close * (settings.INTRADAY_TARGET_PCT / 100), 2)
+            stop_loss = round(close - sl_dist, 2)
+            target = round(close + tp_dist, 2)
+        else:
+            stop_loss = round(close - (atr * 2), 2)
+            target = round(close + (atr * 4), 2)
 
         confidence = min(score / 100, 0.95)
 

@@ -37,6 +37,13 @@ class Settings:
     MARKET_CLOSE = "15:30"
     PRE_MARKET_SCAN = "09:00"   # Run analysis before open
 
+    # Intraday controls
+    INTRADAY_MODE: bool = os.getenv("INTRADAY_MODE", "true").lower() == "true"
+    INTRADAY_ENTRY_CUTOFF = "14:30"   # No new entries after this time
+    INTRADAY_SQUAREOFF_TIME = "15:15"  # Force-exit all positions before Zerodha's 15:20 cutoff
+    INTRADAY_SL_PCT: float = float(os.getenv("INTRADAY_SL_PCT", "0.5"))       # 0.5% below entry
+    INTRADAY_TARGET_PCT: float = float(os.getenv("INTRADAY_TARGET_PCT", "1.0"))  # 1.0% above entry (2:1 R:R)
+
     # Database
     DB_PATH: str = os.path.join(os.path.dirname(__file__), "..", "data", "trades.db")
 

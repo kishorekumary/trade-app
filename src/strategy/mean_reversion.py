@@ -2,6 +2,7 @@ from typing import Optional
 import pandas as pd
 from .base import BaseStrategy, TradeSignal
 from src.utils import get_logger
+from config.settings import settings
 
 log = get_logger("mean_reversion_strategy")
 
@@ -61,8 +62,14 @@ class MeanReversionStrategy(BaseStrategy):
         if score < 55:
             return None
 
-        stop_loss = round(close - (atr * 1.5), 2)
-        target = round(close + (atr * 3), 2)  # 2:1 R:R
+        if settings.INTRADAY_MODE:
+            sl_dist = round(close * (settings.INTRADAY_SL_PCT / 100), 2)
+            tp_dist = round(close * (settings.INTRADAY_TARGET_PCT / 100), 2)
+            stop_loss = round(close - sl_dist, 2)
+            target = round(close + tp_dist, 2)
+        else:
+            stop_loss = round(close - (atr * 1.5), 2)
+            target = round(close + (atr * 3), 2)
 
         confidence = min(score / 100, 0.90)
 
